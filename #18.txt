@@ -1,0 +1,510 @@
+Started by user nicolas jimenez
+Obtained Jenkinsfile.taller-ci-cd from git https://github.com/nicoarchery/cicd-demo.git
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /var/jenkins_home/workspace/taller-cicd
+[Pipeline] {
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] timestamps
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Checkout)
+[Pipeline] checkout
+[2026-04-29T15:22:11.899Z] Selected Git installation does not exist. Using Default
+[2026-04-29T15:22:11.899Z] The recommended git tool is: NONE
+[2026-04-29T15:22:11.899Z] No credentials specified
+[2026-04-29T15:22:11.899Z] Cloning the remote Git repository
+[2026-04-29T15:22:11.899Z] Cloning repository https://github.com/nicoarchery/cicd-demo.git
+[2026-04-29T15:22:11.899Z]  > git init /var/jenkins_home/workspace/taller-cicd # timeout=10
+[2026-04-29T15:22:11.907Z] Fetching upstream changes from https://github.com/nicoarchery/cicd-demo.git
+[2026-04-29T15:22:11.908Z]  > git --version # timeout=10
+[2026-04-29T15:22:11.911Z]  > git --version # 'git version 2.47.3'
+[2026-04-29T15:22:11.911Z]  > git fetch --tags --force --progress -- https://github.com/nicoarchery/cicd-demo.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+[2026-04-29T15:22:13.599Z]  > git config remote.origin.url https://github.com/nicoarchery/cicd-demo.git # timeout=10
+[2026-04-29T15:22:13.605Z]  > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+[2026-04-29T15:22:13.614Z] Avoid second fetch
+[2026-04-29T15:22:13.614Z]  > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+[2026-04-29T15:22:13.620Z] Checking out Revision 3dcffbe913d14b53912baa01ecf070e793ab3bbb (refs/remotes/origin/master)
+[2026-04-29T15:22:13.620Z]  > git config core.sparsecheckout # timeout=10
+[2026-04-29T15:22:13.626Z]  > git checkout -f 3dcffbe913d14b53912baa01ecf070e793ab3bbb # timeout=10
+[2026-04-29T15:22:13.638Z] Commit message: "pom modificacion antigravity3"
+[2026-04-29T15:22:13.639Z]  > git rev-list --no-walk afcdb40f581906fbe38867a80e11f9e472a8843b # timeout=10
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Build)
+[Pipeline] sh
+[2026-04-29T15:22:14.042Z] + mvn -B -DskipTests clean package
+[2026-04-29T15:22:15.904Z] [INFO] Scanning for projects...
+[2026-04-29T15:22:16.455Z] [INFO] 
+[2026-04-29T15:22:16.455Z] [INFO] --------------------< au.com.helderklemp:cicd-demo >--------------------
+[2026-04-29T15:22:16.455Z] [INFO] Building cicd-demo 1.0-SNAPSHOT
+[2026-04-29T15:22:16.455Z] [INFO]   from pom.xml
+[2026-04-29T15:22:16.455Z] [INFO] --------------------------------[ jar ]---------------------------------
+[2026-04-29T15:22:17.005Z] [INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/tomcat/embed/tomcat-embed-core/9.0.116/tomcat-embed-core-9.0.116.pom
+[2026-04-29T15:22:17.556Z] [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/tomcat/embed/tomcat-embed-core/9.0.116/tomcat-embed-core-9.0.116.pom (1.7 kB at 2.7 kB/s)
+[2026-04-29T15:22:17.556Z] [INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/tomcat/embed/tomcat-embed-el/9.0.116/tomcat-embed-el-9.0.116.pom
+[2026-04-29T15:22:17.807Z] [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/tomcat/embed/tomcat-embed-el/9.0.116/tomcat-embed-el-9.0.116.pom (1.5 kB at 17 kB/s)
+[2026-04-29T15:22:17.807Z] [INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/tomcat/embed/tomcat-embed-websocket/9.0.116/tomcat-embed-websocket-9.0.116.pom
+[2026-04-29T15:22:17.807Z] [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/tomcat/embed/tomcat-embed-websocket/9.0.116/tomcat-embed-websocket-9.0.116.pom (1.7 kB at 27 kB/s)
+[2026-04-29T15:22:18.358Z] [INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/tomcat/embed/tomcat-embed-core/9.0.116/tomcat-embed-core-9.0.116.jar
+[2026-04-29T15:22:18.909Z] [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/tomcat/embed/tomcat-embed-core/9.0.116/tomcat-embed-core-9.0.116.jar (3.7 MB at 7.6 MB/s)
+[2026-04-29T15:22:18.909Z] [INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/tomcat/embed/tomcat-embed-el/9.0.116/tomcat-embed-el-9.0.116.jar
+[2026-04-29T15:22:18.909Z] [INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/tomcat/embed/tomcat-embed-websocket/9.0.116/tomcat-embed-websocket-9.0.116.jar
+[2026-04-29T15:22:18.909Z] [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/tomcat/embed/tomcat-embed-el/9.0.116/tomcat-embed-el-9.0.116.jar (262 kB at 3.1 MB/s)
+[2026-04-29T15:22:19.160Z] [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/tomcat/embed/tomcat-embed-websocket/9.0.116/tomcat-embed-websocket-9.0.116.jar (286 kB at 1.4 MB/s)
+[2026-04-29T15:22:19.160Z] [INFO] 
+[2026-04-29T15:22:19.160Z] [INFO] --- clean:3.2.0:clean (default-clean) @ cicd-demo ---
+[2026-04-29T15:22:19.160Z] [INFO] Deleting /var/jenkins_home/workspace/taller-cicd/target
+[2026-04-29T15:22:19.160Z] [INFO] 
+[2026-04-29T15:22:19.160Z] [INFO] --- jacoco:0.8.0:prepare-agent (default-prepare-agent) @ cicd-demo ---
+[2026-04-29T15:22:19.711Z] [INFO] argLine set to -javaagent:/var/jenkins_home/.m2/repository/org/jacoco/org.jacoco.agent/0.8.0/org.jacoco.agent-0.8.0-runtime.jar=destfile=/var/jenkins_home/workspace/taller-cicd/target/jacoco.exec
+[2026-04-29T15:22:19.711Z] [INFO] 
+[2026-04-29T15:22:19.711Z] [INFO] --- resources:3.2.0:resources (default-resources) @ cicd-demo ---
+[2026-04-29T15:22:19.711Z] [INFO] Using 'UTF-8' encoding to copy filtered resources.
+[2026-04-29T15:22:19.711Z] [INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[2026-04-29T15:22:19.711Z] [INFO] Copying 1 resource
+[2026-04-29T15:22:19.711Z] [INFO] Copying 0 resource
+[2026-04-29T15:22:19.711Z] [INFO] 
+[2026-04-29T15:22:19.711Z] [INFO] --- compiler:3.10.1:compile (default-compile) @ cicd-demo ---
+[2026-04-29T15:22:19.961Z] [INFO] Changes detected - recompiling the module!
+[2026-04-29T15:22:19.961Z] [INFO] Compiling 8 source files to /var/jenkins_home/workspace/taller-cicd/target/classes
+[2026-04-29T15:22:21.305Z] [INFO] 
+[2026-04-29T15:22:21.305Z] [INFO] --- resources:3.2.0:testResources (default-testResources) @ cicd-demo ---
+[2026-04-29T15:22:21.305Z] [INFO] Using 'UTF-8' encoding to copy filtered resources.
+[2026-04-29T15:22:21.305Z] [INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[2026-04-29T15:22:21.305Z] [INFO] skip non existing resourceDirectory /var/jenkins_home/workspace/taller-cicd/src/test/resources
+[2026-04-29T15:22:21.305Z] [INFO] 
+[2026-04-29T15:22:21.305Z] [INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ cicd-demo ---
+[2026-04-29T15:22:21.305Z] [INFO] Changes detected - recompiling the module!
+[2026-04-29T15:22:21.305Z] [INFO] Compiling 7 source files to /var/jenkins_home/workspace/taller-cicd/target/test-classes
+[2026-04-29T15:22:21.555Z] [INFO] /var/jenkins_home/workspace/taller-cicd/src/test/java/au/com/equifax/cicddemo/SeleniumExampleTest.java: /var/jenkins_home/workspace/taller-cicd/src/test/java/au/com/equifax/cicddemo/SeleniumExampleTest.java uses or overrides a deprecated API.
+[2026-04-29T15:22:21.555Z] [INFO] /var/jenkins_home/workspace/taller-cicd/src/test/java/au/com/equifax/cicddemo/SeleniumExampleTest.java: Recompile with -Xlint:deprecation for details.
+[2026-04-29T15:22:21.555Z] [INFO] 
+[2026-04-29T15:22:21.555Z] [INFO] --- surefire:2.22.1:test (default-test) @ cicd-demo ---
+[2026-04-29T15:22:21.806Z] [INFO] Tests are skipped.
+[2026-04-29T15:22:21.806Z] [INFO] 
+[2026-04-29T15:22:21.806Z] [INFO] --- jacoco:0.8.0:report (default-report) @ cicd-demo ---
+[2026-04-29T15:22:21.806Z] [INFO] Skipping JaCoCo execution due to missing execution data file.
+[2026-04-29T15:22:21.806Z] [INFO] 
+[2026-04-29T15:22:21.806Z] [INFO] --- jar:3.2.2:jar (default-jar) @ cicd-demo ---
+[2026-04-29T15:22:22.357Z] [INFO] Building jar: /var/jenkins_home/workspace/taller-cicd/target/cicd-demo-1.0-SNAPSHOT.jar
+[2026-04-29T15:22:22.357Z] [INFO] 
+[2026-04-29T15:22:22.357Z] [INFO] --- spring-boot:2.7.18:repackage (repackage) @ cicd-demo ---
+[2026-04-29T15:22:22.608Z] [INFO] Replacing main artifact with repackaged archive
+[2026-04-29T15:22:22.608Z] [INFO] 
+[2026-04-29T15:22:22.608Z] [INFO] --- spring-boot:2.7.18:repackage (default) @ cicd-demo ---
+[2026-04-29T15:22:22.608Z] [INFO] Replacing main artifact with repackaged archive
+[2026-04-29T15:22:22.608Z] [INFO] ------------------------------------------------------------------------
+[2026-04-29T15:22:22.608Z] [INFO] BUILD SUCCESS
+[2026-04-29T15:22:22.608Z] [INFO] ------------------------------------------------------------------------
+[2026-04-29T15:22:22.608Z] [INFO] Total time:  6.787 s
+[2026-04-29T15:22:22.608Z] [INFO] Finished at: 2026-04-29T15:22:22Z
+[2026-04-29T15:22:22.608Z] [INFO] ------------------------------------------------------------------------
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Test)
+[Pipeline] sh
+[2026-04-29T15:22:23.235Z] + mvn -B -Djacoco.skip=true -DforkCount=0 -DexcludedGroups=au.com.equifax.cicddemo.domain.SystemTest test
+[2026-04-29T15:22:25.098Z] [INFO] Scanning for projects...
+[2026-04-29T15:22:25.348Z] [INFO] 
+[2026-04-29T15:22:25.348Z] [INFO] --------------------< au.com.helderklemp:cicd-demo >--------------------
+[2026-04-29T15:22:25.348Z] [INFO] Building cicd-demo 1.0-SNAPSHOT
+[2026-04-29T15:22:25.348Z] [INFO]   from pom.xml
+[2026-04-29T15:22:25.348Z] [INFO] --------------------------------[ jar ]---------------------------------
+[2026-04-29T15:22:26.260Z] [INFO] 
+[2026-04-29T15:22:26.260Z] [INFO] --- jacoco:0.8.0:prepare-agent (default-prepare-agent) @ cicd-demo ---
+[2026-04-29T15:22:26.811Z] [INFO] Skipping JaCoCo execution because property jacoco.skip is set.
+[2026-04-29T15:22:26.811Z] [INFO] argLine set to empty
+[2026-04-29T15:22:26.811Z] [INFO] 
+[2026-04-29T15:22:26.811Z] [INFO] --- resources:3.2.0:resources (default-resources) @ cicd-demo ---
+[2026-04-29T15:22:26.811Z] [INFO] Using 'UTF-8' encoding to copy filtered resources.
+[2026-04-29T15:22:26.811Z] [INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[2026-04-29T15:22:26.811Z] [INFO] Copying 1 resource
+[2026-04-29T15:22:26.811Z] [INFO] Copying 0 resource
+[2026-04-29T15:22:26.811Z] [INFO] 
+[2026-04-29T15:22:26.811Z] [INFO] --- compiler:3.10.1:compile (default-compile) @ cicd-demo ---
+[2026-04-29T15:22:27.062Z] [INFO] Nothing to compile - all classes are up to date
+[2026-04-29T15:22:27.062Z] [INFO] 
+[2026-04-29T15:22:27.062Z] [INFO] --- resources:3.2.0:testResources (default-testResources) @ cicd-demo ---
+[2026-04-29T15:22:27.062Z] [INFO] Using 'UTF-8' encoding to copy filtered resources.
+[2026-04-29T15:22:27.062Z] [INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[2026-04-29T15:22:27.062Z] [INFO] skip non existing resourceDirectory /var/jenkins_home/workspace/taller-cicd/src/test/resources
+[2026-04-29T15:22:27.062Z] [INFO] 
+[2026-04-29T15:22:27.062Z] [INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ cicd-demo ---
+[2026-04-29T15:22:27.062Z] [INFO] Nothing to compile - all classes are up to date
+[2026-04-29T15:22:27.062Z] [INFO] 
+[2026-04-29T15:22:27.062Z] [INFO] --- surefire:2.22.1:test (default-test) @ cicd-demo ---
+[2026-04-29T15:22:27.062Z] [WARNING] useSystemClassloader setting has no effect when not forking
+[2026-04-29T15:22:27.613Z] 15:22:27.469 [main] DEBUG org.springframework.test.context.junit4.SpringJUnit4ClassRunner - SpringJUnit4ClassRunner constructor called with [class au.com.equifax.cicddemo.UserControllerIntTest]
+[2026-04-29T15:22:27.613Z] 15:22:27.475 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+[2026-04-29T15:22:27.613Z] 15:22:27.485 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+[2026-04-29T15:22:27.613Z] 15:22:27.530 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [au.com.equifax.cicddemo.UserControllerIntTest] from class [org.springframework.boot.test.context.SpringBootTestContextBootstrapper]
+[2026-04-29T15:22:27.613Z] 15:22:27.549 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [au.com.equifax.cicddemo.UserControllerIntTest], using SpringBootContextLoader
+[2026-04-29T15:22:27.613Z] 15:22:27.554 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [au.com.equifax.cicddemo.UserControllerIntTest]: class path resource [au/com/equifax/cicddemo/UserControllerIntTest-context.xml] does not exist
+[2026-04-29T15:22:27.613Z] 15:22:27.554 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [au.com.equifax.cicddemo.UserControllerIntTest]: class path resource [au/com/equifax/cicddemo/UserControllerIntTestContext.groovy] does not exist
+[2026-04-29T15:22:27.613Z] 15:22:27.555 [main] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [au.com.equifax.cicddemo.UserControllerIntTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+[2026-04-29T15:22:27.613Z] 15:22:27.609 [main] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [au.com.equifax.cicddemo.UserControllerIntTest]
+[2026-04-29T15:22:27.863Z] 15:22:27.712 [main] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - @TestExecutionListeners is not present for class [au.com.equifax.cicddemo.UserControllerIntTest]: using defaults.
+[2026-04-29T15:22:27.863Z] 15:22:27.712 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[2026-04-29T15:22:27.863Z] 15:22:27.736 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@1eb906f3, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@58e02359, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@74fc3fc7, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@491893f8, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@1f408ab6, org.springframework.test.context.support.DirtiesContextTestExecutionListener@46e388ec, org.springframework.test.context.transaction.TransactionalTestExecutionListener@53f495f0, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@5efe5b25, org.springframework.test.context.event.EventPublishingTestExecutionListener@45707f76, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@1f0e2bdc, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@682266d8, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@44a93f8a, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@26463a6, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@6c5ae8fd, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@17354708]
+[2026-04-29T15:22:27.863Z] 15:22:27.738 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [au.com.equifax.cicddemo.UserControllerIntTest]
+[2026-04-29T15:22:27.863Z] 15:22:27.739 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [au.com.equifax.cicddemo.UserControllerIntTest]
+[2026-04-29T15:22:27.863Z] 15:22:27.740 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [au.com.equifax.cicddemo.UserControllerIntTest]
+[2026-04-29T15:22:27.864Z] 15:22:27.740 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [au.com.equifax.cicddemo.UserControllerIntTest]
+[2026-04-29T15:22:27.864Z] 15:22:27.745 [main] DEBUG org.springframework.test.context.junit4.SpringJUnit4ClassRunner - SpringJUnit4ClassRunner constructor called with [class au.com.equifax.cicddemo.CicdDemoApplicationTests]
+[2026-04-29T15:22:27.864Z] 15:22:27.746 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+[2026-04-29T15:22:27.864Z] 15:22:27.746 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+[2026-04-29T15:22:27.864Z] 15:22:27.747 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [au.com.equifax.cicddemo.CicdDemoApplicationTests] from class [org.springframework.boot.test.context.SpringBootTestContextBootstrapper]
+[2026-04-29T15:22:27.864Z] 15:22:27.748 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [au.com.equifax.cicddemo.CicdDemoApplicationTests], using SpringBootContextLoader
+[2026-04-29T15:22:27.864Z] 15:22:27.749 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [au.com.equifax.cicddemo.CicdDemoApplicationTests]: class path resource [au/com/equifax/cicddemo/CicdDemoApplicationTests-context.xml] does not exist
+[2026-04-29T15:22:27.864Z] 15:22:27.749 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [au.com.equifax.cicddemo.CicdDemoApplicationTests]: class path resource [au/com/equifax/cicddemo/CicdDemoApplicationTestsContext.groovy] does not exist
+[2026-04-29T15:22:27.864Z] 15:22:27.750 [main] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [au.com.equifax.cicddemo.CicdDemoApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+[2026-04-29T15:22:27.864Z] 15:22:27.751 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [au.com.equifax.cicddemo.CicdDemoApplicationTests]: CicdDemoApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+[2026-04-29T15:22:27.864Z] 15:22:27.754 [main] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [au.com.equifax.cicddemo.CicdDemoApplicationTests]
+[2026-04-29T15:22:27.864Z] 15:22:27.820 [main] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [/var/jenkins_home/workspace/taller-cicd/target/classes/au/com/equifax/cicddemo/CicdDemoApplication.class]
+[2026-04-29T15:22:27.864Z] 15:22:27.821 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration au.com.equifax.cicddemo.CicdDemoApplication for test class au.com.equifax.cicddemo.CicdDemoApplicationTests
+[2026-04-29T15:22:27.864Z] 15:22:27.824 [main] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - @TestExecutionListeners is not present for class [au.com.equifax.cicddemo.CicdDemoApplicationTests]: using defaults.
+[2026-04-29T15:22:27.864Z] 15:22:27.825 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[2026-04-29T15:22:27.864Z] 15:22:27.826 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@517fbf62, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@65db548, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@150f41b9, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@6e364f1f, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@429e7914, org.springframework.test.context.support.DirtiesContextTestExecutionListener@298263fa, org.springframework.test.context.transaction.TransactionalTestExecutionListener@466fedfa, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@1a7d0c9f, org.springframework.test.context.event.EventPublishingTestExecutionListener@2b1a901d, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@11bdab37, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@280484c7, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@5a6f6cac, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@258a8584, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@59127611, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@553ce348]
+[2026-04-29T15:22:27.864Z] 15:22:27.834 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [au.com.equifax.cicddemo.CicdDemoApplicationTests]
+[2026-04-29T15:22:27.864Z] 15:22:27.834 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [au.com.equifax.cicddemo.CicdDemoApplicationTests]
+[2026-04-29T15:22:27.864Z] 15:22:27.834 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [au.com.equifax.cicddemo.CicdDemoApplicationTests]
+[2026-04-29T15:22:27.864Z] 15:22:27.835 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [au.com.equifax.cicddemo.CicdDemoApplicationTests]
+[2026-04-29T15:22:27.864Z] 15:22:27.835 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [au.com.equifax.cicddemo.UserControllerIntTest]
+[2026-04-29T15:22:27.864Z] 15:22:27.835 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [au.com.equifax.cicddemo.UserControllerIntTest]
+[2026-04-29T15:22:27.864Z] 15:22:27.837 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [au.com.equifax.cicddemo.CicdDemoApplicationTests]
+[2026-04-29T15:22:27.864Z] 15:22:27.837 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [au.com.equifax.cicddemo.CicdDemoApplicationTests]
+[2026-04-29T15:22:27.864Z] 15:22:27.852 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [au.com.equifax.cicddemo.UserControllerIntTest]
+[2026-04-29T15:22:27.864Z] 15:22:27.853 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [au.com.equifax.cicddemo.UserControllerIntTest]
+[2026-04-29T15:22:27.864Z] 15:22:27.853 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [au.com.equifax.cicddemo.CicdDemoApplicationTests]
+[2026-04-29T15:22:27.864Z] 15:22:27.853 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [au.com.equifax.cicddemo.CicdDemoApplicationTests]
+[2026-04-29T15:22:27.864Z] 15:22:27.856 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [au.com.equifax.cicddemo.UserControllerIntTest]
+[2026-04-29T15:22:27.864Z] 15:22:27.856 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [au.com.equifax.cicddemo.UserControllerIntTest]
+[2026-04-29T15:22:27.864Z] 15:22:27.856 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [au.com.equifax.cicddemo.CicdDemoApplicationTests]
+[2026-04-29T15:22:27.864Z] 15:22:27.856 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [au.com.equifax.cicddemo.CicdDemoApplicationTests]
+[2026-04-29T15:22:27.864Z] 15:22:27.859 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [au.com.equifax.cicddemo.UserControllerIntTest]
+[2026-04-29T15:22:27.864Z] 15:22:27.859 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [au.com.equifax.cicddemo.UserControllerIntTest]
+[2026-04-29T15:22:27.864Z] 15:22:27.859 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [au.com.equifax.cicddemo.UserControllerIntTest]
+[2026-04-29T15:22:27.864Z] 15:22:27.859 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [au.com.equifax.cicddemo.UserControllerIntTest]
+[2026-04-29T15:22:28.115Z] 15:22:27.864 [main] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@6c830ebd testClass = UserControllerIntTest, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@15f519f7 testClass = UserControllerIntTest, locations = '{}', classes = '{class au.com.equifax.cicddemo.CicdDemoApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=0}', contextCustomizers = set[org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@1b4a3a1, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@56ec6960, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@5103eea2, org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@4228f269, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@5e0f2c82, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@16bbaab3], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> false]], class annotated with @DirtiesContext [false] with mode [null].
+[2026-04-29T15:22:28.115Z] 15:22:27.866 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [au.com.equifax.cicddemo.UserControllerIntTest]
+[2026-04-29T15:22:28.115Z] 15:22:27.866 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [au.com.equifax.cicddemo.UserControllerIntTest]
+[2026-04-29T15:22:28.665Z] 15:22:28.384 [main] DEBUG org.springframework.test.context.support.DependencyInjectionTestExecutionListener - Performing dependency injection for test context [[DefaultTestContext@6c830ebd testClass = UserControllerIntTest, testInstance = au.com.equifax.cicddemo.UserControllerIntTest@f36f34d, testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@15f519f7 testClass = UserControllerIntTest, locations = '{}', classes = '{class au.com.equifax.cicddemo.CicdDemoApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=0}', contextCustomizers = set[org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@1b4a3a1, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@56ec6960, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@5103eea2, org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@4228f269, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@5e0f2c82, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@16bbaab3], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> false, 'org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]].
+[2026-04-29T15:22:28.665Z] 
+[2026-04-29T15:22:28.665Z]   .   ____          _            __ _ _
+[2026-04-29T15:22:28.665Z]  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+[2026-04-29T15:22:28.665Z] ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+[2026-04-29T15:22:28.665Z]  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+[2026-04-29T15:22:28.665Z]   '  |____| .__|_| |_|_| |_\__, | / / / /
+[2026-04-29T15:22:28.665Z]  =========|_|==============|___/=/_/_/_/
+[2026-04-29T15:22:28.665Z]  :: Spring Boot ::               (v2.7.18)
+[2026-04-29T15:22:28.665Z] 
+[2026-04-29T15:22:28.916Z] 2026-04-29 15:22:28.670  INFO 8911 --- [           main] a.c.e.cicddemo.UserControllerIntTest     : Starting UserControllerIntTest using Java 21.0.10 on 0a732991e260 with PID 8911 (started by jenkins in /var/jenkins_home/workspace/taller-cicd)
+[2026-04-29T15:22:28.916Z] 2026-04-29 15:22:28.671  INFO 8911 --- [           main] a.c.e.cicddemo.UserControllerIntTest     : No active profile set, falling back to 1 default profile: "default"
+[2026-04-29T15:22:30.259Z] 2026-04-29 15:22:29.837  INFO 8911 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
+[2026-04-29T15:22:30.259Z] 2026-04-29 15:22:29.849  INFO 8911 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+[2026-04-29T15:22:30.259Z] 2026-04-29 15:22:29.849  INFO 8911 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.116]
+[2026-04-29T15:22:30.259Z] 2026-04-29 15:22:29.879  INFO 8911 --- [           main] org.apache.catalina.loader.WebappLoader  : Unknown class loader [jdk.internal.loader.ClassLoaders$PlatformClassLoader@4718d320] of class [class jdk.internal.loader.ClassLoaders$PlatformClassLoader]
+[2026-04-29T15:22:30.259Z] 2026-04-29 15:22:29.910  INFO 8911 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+[2026-04-29T15:22:30.259Z] 2026-04-29 15:22:29.910  INFO 8911 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1222 ms
+[2026-04-29T15:22:31.603Z] 2026-04-29 15:22:31.573  INFO 8911 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+[2026-04-29T15:22:31.853Z] 2026-04-29 15:22:31.639  INFO 8911 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 33039 (http) with context path ''
+[2026-04-29T15:22:31.853Z] 2026-04-29 15:22:31.652  INFO 8911 --- [           main] a.c.e.cicddemo.UserControllerIntTest     : Started UserControllerIntTest in 3.25 seconds (JVM running for 8.623)
+[2026-04-29T15:22:31.853Z] [INFO] Running au.com.equifax.cicddemo.UserControllerIntTest
+[2026-04-29T15:22:32.403Z] 2026-04-29 15:22:32.120  INFO 8911 --- [o-auto-1-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2026-04-29T15:22:32.403Z] 2026-04-29 15:22:32.120  INFO 8911 --- [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+[2026-04-29T15:22:32.403Z] 2026-04-29 15:22:32.121  INFO 8911 --- [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+[2026-04-29T15:22:32.404Z] [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.488 s - in au.com.equifax.cicddemo.UserControllerIntTest
+[2026-04-29T15:22:32.404Z] [INFO] Running au.com.equifax.cicddemo.UserServiceTest
+[2026-04-29T15:22:32.404Z] 
+[2026-04-29T15:22:32.404Z]   .   ____          _            __ _ _
+[2026-04-29T15:22:32.404Z]  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+[2026-04-29T15:22:32.404Z] ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+[2026-04-29T15:22:32.404Z]  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+[2026-04-29T15:22:32.404Z]   '  |____| .__|_| |_|_| |_\__, | / / / /
+[2026-04-29T15:22:32.404Z]  =========|_|==============|___/=/_/_/_/
+[2026-04-29T15:22:32.404Z]  :: Spring Boot ::               (v2.7.18)
+[2026-04-29T15:22:32.404Z] 
+[2026-04-29T15:22:32.404Z] 2026-04-29 15:22:32.327  INFO 8911 --- [           main] a.c.e.cicddemo.CicdDemoApplicationTests  : Starting CicdDemoApplicationTests using Java 21.0.10 on 0a732991e260 with PID 8911 (started by jenkins in /var/jenkins_home/workspace/taller-cicd)
+[2026-04-29T15:22:32.404Z] 2026-04-29 15:22:32.327  INFO 8911 --- [           main] a.c.e.cicddemo.CicdDemoApplicationTests  : No active profile set, falling back to 1 default profile: "default"
+[2026-04-29T15:22:33.315Z] 2026-04-29 15:22:33.094  INFO 8911 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+[2026-04-29T15:22:33.315Z] 2026-04-29 15:22:33.117  INFO 8911 --- [           main] a.c.e.cicddemo.CicdDemoApplicationTests  : Started CicdDemoApplicationTests in 0.811 seconds (JVM running for 10.088)
+[2026-04-29T15:22:33.315Z] [INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.829 s - in au.com.equifax.cicddemo.UserServiceTest
+[2026-04-29T15:22:33.315Z] [INFO] Running au.com.equifax.cicddemo.CicdDemoApplicationTests
+[2026-04-29T15:22:33.315Z] [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in au.com.equifax.cicddemo.CicdDemoApplicationTests
+[2026-04-29T15:22:33.315Z] [INFO] 
+[2026-04-29T15:22:33.315Z] [INFO] Results:
+[2026-04-29T15:22:33.315Z] [INFO] 
+[2026-04-29T15:22:33.315Z] [INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0
+[2026-04-29T15:22:33.315Z] [INFO] 
+[2026-04-29T15:22:33.315Z] [INFO] ------------------------------------------------------------------------
+[2026-04-29T15:22:33.315Z] [INFO] BUILD SUCCESS
+[2026-04-29T15:22:33.315Z] [INFO] ------------------------------------------------------------------------
+[2026-04-29T15:22:33.315Z] [INFO] Total time:  8.253 s
+[2026-04-29T15:22:33.315Z] [INFO] Finished at: 2026-04-29T15:22:33Z
+[2026-04-29T15:22:33.315Z] [INFO] ------------------------------------------------------------------------
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Static Analysis (SonarQube))
+[Pipeline] withSonarQubeEnv
+[2026-04-29T15:22:33.442Z] Injecting SonarQube environment variables using the configuration: SonarQube
+[Pipeline] {
+[Pipeline] sh
+[2026-04-29T15:22:33.791Z] + mvn -B sonar:sonar -Dsonar.projectKey=mi-app -Dsonar.host.url=http://172.17.0.1:9000 -Dsonar.login=******
+[2026-04-29T15:22:36.274Z] [INFO] Scanning for projects...
+[2026-04-29T15:22:36.274Z] [INFO] 
+[2026-04-29T15:22:36.274Z] [INFO] --------------------< au.com.helderklemp:cicd-demo >--------------------
+[2026-04-29T15:22:36.274Z] [INFO] Building cicd-demo 1.0-SNAPSHOT
+[2026-04-29T15:22:36.274Z] [INFO]   from pom.xml
+[2026-04-29T15:22:36.274Z] [INFO] --------------------------------[ jar ]---------------------------------
+[2026-04-29T15:22:37.186Z] [INFO] 
+[2026-04-29T15:22:37.186Z] [INFO] --- sonar:3.5.0.1254:sonar (default-cli) @ cicd-demo ---
+[2026-04-29T15:22:37.437Z] [INFO] User cache: /var/jenkins_home/.sonar/cache
+[2026-04-29T15:22:37.437Z] [INFO] SonarQube version: 9.9.8.100196
+[2026-04-29T15:22:37.687Z] [INFO] Default locale: "en", source code encoding: "UTF-8"
+[2026-04-29T15:22:38.238Z] [INFO] Load global settings
+[2026-04-29T15:22:38.489Z] [INFO] Load global settings (done) | time=182ms
+[2026-04-29T15:22:38.489Z] [INFO] Server id: 147B411E-AZ3ZYuBQe1rrWB1pzCZv
+[2026-04-29T15:22:38.489Z] [INFO] User cache: /var/jenkins_home/.sonar/cache
+[2026-04-29T15:22:38.489Z] [INFO] Load/download plugins
+[2026-04-29T15:22:38.489Z] [INFO] Load plugins index
+[2026-04-29T15:22:38.489Z] [INFO] Load plugins index (done) | time=80ms
+[2026-04-29T15:22:38.739Z] [INFO] Load/download plugins (done) | time=181ms
+[2026-04-29T15:22:39.290Z] [INFO] Process project properties
+[2026-04-29T15:22:39.290Z] [INFO] Process project properties (done) | time=24ms
+[2026-04-29T15:22:39.541Z] [INFO] Execute project builders
+[2026-04-29T15:22:39.541Z] [INFO] Execute project builders (done) | time=2ms
+[2026-04-29T15:22:39.541Z] [INFO] Project key: mi-app
+[2026-04-29T15:22:39.541Z] [INFO] Base dir: /var/jenkins_home/workspace/taller-cicd
+[2026-04-29T15:22:39.541Z] [INFO] Working dir: /var/jenkins_home/workspace/taller-cicd/target/sonar
+[2026-04-29T15:22:39.541Z] [INFO] Load project settings for component key: 'mi-app'
+[2026-04-29T15:22:39.541Z] [INFO] Load project settings for component key: 'mi-app' (done) | time=33ms
+[2026-04-29T15:22:39.541Z] [INFO] Auto-configuring with CI 'Jenkins'
+[2026-04-29T15:22:39.541Z] [INFO] Load quality profiles
+[2026-04-29T15:22:39.791Z] [INFO] Load quality profiles (done) | time=129ms
+[2026-04-29T15:22:39.791Z] [INFO] Load active rules
+[2026-04-29T15:22:43.020Z] [INFO] Load active rules (done) | time=2737ms
+[2026-04-29T15:22:43.020Z] [INFO] Load analysis cache
+[2026-04-29T15:22:43.020Z] [INFO] Load analysis cache (335 bytes) | time=27ms
+[2026-04-29T15:22:43.020Z] [INFO] Load project repositories
+[2026-04-29T15:22:43.020Z] [INFO] Load project repositories (done) | time=22ms
+[2026-04-29T15:22:43.020Z] [INFO] Indexing files...
+[2026-04-29T15:22:43.020Z] [INFO] Project configuration:
+[2026-04-29T15:22:43.020Z] [INFO] 16 files indexed
+[2026-04-29T15:22:43.020Z] [INFO] 0 files ignored because of scm ignore settings
+[2026-04-29T15:22:43.020Z] [INFO] Quality profile for java: Sonar way
+[2026-04-29T15:22:43.020Z] [INFO] Quality profile for xml: Sonar way
+[2026-04-29T15:22:43.020Z] [INFO] ------------- Run sensors on module cicd-demo
+[2026-04-29T15:22:43.020Z] [INFO] Load metrics repository
+[2026-04-29T15:22:43.020Z] [INFO] Load metrics repository (done) | time=29ms
+[2026-04-29T15:22:44.882Z] [INFO] Sensor JavaSensor [java]
+[2026-04-29T15:22:44.882Z] [INFO] Configured Java source version (sonar.java.source): 11
+[2026-04-29T15:22:44.882Z] [INFO] JavaClasspath initialization
+[2026-04-29T15:22:44.882Z] [INFO] JavaClasspath initialization (done) | time=5ms
+[2026-04-29T15:22:44.882Z] [INFO] JavaTestClasspath initialization
+[2026-04-29T15:22:44.882Z] [INFO] JavaTestClasspath initialization (done) | time=5ms
+[2026-04-29T15:22:44.882Z] [INFO] Server-side caching is enabled. The Java analyzer will not try to leverage data from a previous analysis.
+[2026-04-29T15:22:44.882Z] [INFO] Using ECJ batch to parse 8 Main java source files with batch size 205 KB.
+[2026-04-29T15:22:45.133Z] [INFO] Starting batch processing.
+[2026-04-29T15:22:46.044Z] [INFO] The Java analyzer cannot skip unchanged files in this context. A full analysis is performed for all files.
+[2026-04-29T15:22:46.594Z] [INFO] 100% analyzed
+[2026-04-29T15:22:46.594Z] [INFO] Batch processing: Done.
+[2026-04-29T15:22:46.594Z] [INFO] Did not optimize analysis for any files, performed a full analysis for all 8 files.
+[2026-04-29T15:22:46.594Z] [INFO] Using ECJ batch to parse 7 Test java source files with batch size 205 KB.
+[2026-04-29T15:22:46.595Z] [INFO] Starting batch processing.
+[2026-04-29T15:22:46.845Z] [INFO] 100% analyzed
+[2026-04-29T15:22:46.845Z] [INFO] Batch processing: Done.
+[2026-04-29T15:22:46.845Z] [INFO] Did not optimize analysis for any files, performed a full analysis for all 7 files.
+[2026-04-29T15:22:46.845Z] [INFO] No "Generated" source files to scan.
+[2026-04-29T15:22:46.845Z] [INFO] Sensor JavaSensor [java] (done) | time=1939ms
+[2026-04-29T15:22:46.845Z] [INFO] Sensor JaCoCo XML Report Importer [jacoco]
+[2026-04-29T15:22:46.845Z] [INFO] 'sonar.coverage.jacoco.xmlReportPaths' is not defined. Using default locations: target/site/jacoco/jacoco.xml,target/site/jacoco-it/jacoco.xml,build/reports/jacoco/test/jacocoTestReport.xml
+[2026-04-29T15:22:46.845Z] [INFO] No report imported, no coverage information will be imported by JaCoCo XML Report Importer
+[2026-04-29T15:22:46.845Z] [INFO] Sensor JaCoCo XML Report Importer [jacoco] (done) | time=3ms
+[2026-04-29T15:22:46.845Z] [INFO] Sensor CSS Rules [javascript]
+[2026-04-29T15:22:46.845Z] [INFO] No CSS, PHP, HTML or VueJS files are found in the project. CSS analysis is skipped.
+[2026-04-29T15:22:46.845Z] [INFO] Sensor CSS Rules [javascript] (done) | time=1ms
+[2026-04-29T15:22:46.845Z] [INFO] Sensor C# Project Type Information [csharp]
+[2026-04-29T15:22:46.845Z] [INFO] Sensor C# Project Type Information [csharp] (done) | time=1ms
+[2026-04-29T15:22:46.845Z] [INFO] Sensor C# Analysis Log [csharp]
+[2026-04-29T15:22:46.845Z] [INFO] Sensor C# Analysis Log [csharp] (done) | time=16ms
+[2026-04-29T15:22:46.845Z] [INFO] Sensor C# Properties [csharp]
+[2026-04-29T15:22:46.845Z] [INFO] Sensor C# Properties [csharp] (done) | time=1ms
+[2026-04-29T15:22:46.845Z] [INFO] Sensor SurefireSensor [java]
+[2026-04-29T15:22:46.845Z] [INFO] parsing [/var/jenkins_home/workspace/taller-cicd/target/surefire-reports]
+[2026-04-29T15:22:47.096Z] [INFO] Sensor SurefireSensor [java] (done) | time=78ms
+[2026-04-29T15:22:47.096Z] [INFO] Sensor HTML [web]
+[2026-04-29T15:22:47.096Z] [INFO] Sensor HTML [web] (done) | time=3ms
+[2026-04-29T15:22:47.096Z] [INFO] Sensor XML Sensor [xml]
+[2026-04-29T15:22:47.096Z] [INFO] 1 source file to be analyzed
+[2026-04-29T15:22:47.096Z] [INFO] 1/1 source file has been analyzed
+[2026-04-29T15:22:47.096Z] [INFO] Sensor XML Sensor [xml] (done) | time=193ms
+[2026-04-29T15:22:47.096Z] [INFO] Sensor TextAndSecretsSensor [text]
+[2026-04-29T15:22:47.096Z] [INFO] 16 source files to be analyzed
+[2026-04-29T15:22:47.346Z] [INFO] 16/16 source files have been analyzed
+[2026-04-29T15:22:47.346Z] [INFO] Sensor TextAndSecretsSensor [text] (done) | time=51ms
+[2026-04-29T15:22:47.346Z] [INFO] Sensor VB.NET Project Type Information [vbnet]
+[2026-04-29T15:22:47.346Z] [INFO] Sensor VB.NET Project Type Information [vbnet] (done) | time=1ms
+[2026-04-29T15:22:47.346Z] [INFO] Sensor VB.NET Analysis Log [vbnet]
+[2026-04-29T15:22:47.346Z] [INFO] Sensor VB.NET Analysis Log [vbnet] (done) | time=19ms
+[2026-04-29T15:22:47.346Z] [INFO] Sensor VB.NET Properties [vbnet]
+[2026-04-29T15:22:47.346Z] [INFO] Sensor VB.NET Properties [vbnet] (done) | time=0ms
+[2026-04-29T15:22:47.346Z] [INFO] Sensor IaC Docker Sensor [iac]
+[2026-04-29T15:22:47.346Z] [INFO] 0 source files to be analyzed
+[2026-04-29T15:22:47.346Z] [INFO] 0/0 source files have been analyzed
+[2026-04-29T15:22:47.346Z] [INFO] Sensor IaC Docker Sensor [iac] (done) | time=95ms
+[2026-04-29T15:22:47.346Z] [INFO] ------------- Run sensors on project
+[2026-04-29T15:22:47.346Z] [INFO] Sensor Analysis Warnings import [csharp]
+[2026-04-29T15:22:47.346Z] [INFO] Sensor Analysis Warnings import [csharp] (done) | time=0ms
+[2026-04-29T15:22:47.346Z] [INFO] Sensor Zero Coverage Sensor
+[2026-04-29T15:22:47.346Z] [INFO] Sensor Zero Coverage Sensor (done) | time=8ms
+[2026-04-29T15:22:47.346Z] [INFO] Sensor Java CPD Block Indexer
+[2026-04-29T15:22:47.346Z] [INFO] Sensor Java CPD Block Indexer (done) | time=18ms
+[2026-04-29T15:22:47.347Z] [INFO] SCM Publisher SCM provider for this project is: git
+[2026-04-29T15:22:47.347Z] [INFO] SCM Publisher 1 source file to be analyzed
+[2026-04-29T15:22:47.597Z] [INFO] SCM Publisher 1/1 source file have been analyzed (done) | time=89ms
+[2026-04-29T15:22:47.597Z] [INFO] CPD Executor 3 files had no CPD blocks
+[2026-04-29T15:22:47.597Z] [INFO] CPD Executor Calculating CPD for 5 files
+[2026-04-29T15:22:47.597Z] [INFO] CPD Executor CPD calculation finished (done) | time=10ms
+[2026-04-29T15:22:47.597Z] [INFO] Analysis report generated in 65ms, dir size=164.6 kB
+[2026-04-29T15:22:47.597Z] [INFO] Analysis report compressed in 52ms, zip size=45.9 kB
+[2026-04-29T15:22:47.597Z] [INFO] Analysis report uploaded in 31ms
+[2026-04-29T15:22:47.848Z] [INFO] ANALYSIS SUCCESSFUL, you can find the results at: http://172.17.0.1:9000/dashboard?id=mi-app
+[2026-04-29T15:22:47.848Z] [INFO] Note that you will be able to access the updated dashboard once the server has processed the submitted analysis report
+[2026-04-29T15:22:47.848Z] [INFO] More about the report processing at http://172.17.0.1:9000/api/ce/task?id=AZ3Z1eefe1rrWB1pzMTQ
+[2026-04-29T15:22:47.848Z] [INFO] Analysis total time: 8.968 s
+[2026-04-29T15:22:47.848Z] [INFO] ------------------------------------------------------------------------
+[2026-04-29T15:22:47.848Z] [INFO] BUILD SUCCESS
+[2026-04-29T15:22:47.848Z] [INFO] ------------------------------------------------------------------------
+[2026-04-29T15:22:47.848Z] [INFO] Total time:  11.954 s
+[2026-04-29T15:22:47.848Z] [INFO] Finished at: 2026-04-29T15:22:47Z
+[2026-04-29T15:22:47.848Z] [INFO] ------------------------------------------------------------------------
+[Pipeline] }
+[Pipeline] // withSonarQubeEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Quality Gate (SonarQube))
+[Pipeline] timeout
+[2026-04-29T15:22:48.336Z] Timeout set to expire in 15 min
+[Pipeline] {
+[Pipeline] waitForQualityGate
+[2026-04-29T15:22:48.381Z] Checking status of SonarQube task 'AZ3Z1eefe1rrWB1pzMTQ' on server 'SonarQube'
+[2026-04-29T15:22:48.414Z] SonarQube task 'AZ3Z1eefe1rrWB1pzMTQ' status is 'IN_PROGRESS'
+[2026-04-29T15:22:50.768Z] SonarQube task 'AZ3Z1eefe1rrWB1pzMTQ' status is 'SUCCESS'
+[2026-04-29T15:22:50.768Z] SonarQube task 'AZ3Z1eefe1rrWB1pzMTQ' completed. Quality gate is 'OK'
+[Pipeline] }
+[Pipeline] // timeout
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Docker Build)
+[Pipeline] sh
+[2026-04-29T15:22:51.179Z] + ls target/cicd-demo-1.0-SNAPSHOT.jar
+[2026-04-29T15:22:51.179Z] + docker pull eclipse-temurin:17-jdk
+[2026-04-29T15:22:52.091Z] 17-jdk: Pulling from library/eclipse-temurin
+[2026-04-29T15:22:52.641Z] Digest: sha256:aae0b1494a5637b2c1b933080088ccc196dec7ffb83ce1cd524211ea4f640ff4
+[2026-04-29T15:22:52.641Z] Status: Image is up to date for eclipse-temurin:17-jdk
+[2026-04-29T15:22:52.641Z] docker.io/library/eclipse-temurin:17-jdk
+[2026-04-29T15:22:52.641Z] + docker build -t mi-app:latest .
+[2026-04-29T15:22:53.193Z] #0 building with "default" instance using docker driver
+[2026-04-29T15:22:53.193Z] 
+[2026-04-29T15:22:53.193Z] #1 [internal] load build definition from Dockerfile
+[2026-04-29T15:22:53.193Z] #1 transferring dockerfile: 205B done
+[2026-04-29T15:22:53.193Z] #1 DONE 0.0s
+[2026-04-29T15:22:53.193Z] 
+[2026-04-29T15:22:53.193Z] #2 [internal] load metadata for docker.io/library/eclipse-temurin:17-jdk
+[2026-04-29T15:22:53.193Z] #2 DONE 0.1s
+[2026-04-29T15:22:53.193Z] 
+[2026-04-29T15:22:53.193Z] #3 [internal] load .dockerignore
+[2026-04-29T15:22:53.193Z] #3 transferring context: 2B done
+[2026-04-29T15:22:53.193Z] #3 DONE 0.0s
+[2026-04-29T15:22:53.193Z] 
+[2026-04-29T15:22:53.193Z] #4 [internal] load build context
+[2026-04-29T15:22:53.444Z] #4 ...
+[2026-04-29T15:22:53.444Z] 
+[2026-04-29T15:22:53.444Z] #5 [1/2] FROM docker.io/library/eclipse-temurin:17-jdk@sha256:aae0b1494a5637b2c1b933080088ccc196dec7ffb83ce1cd524211ea4f640ff4
+[2026-04-29T15:22:53.444Z] #5 resolve docker.io/library/eclipse-temurin:17-jdk@sha256:aae0b1494a5637b2c1b933080088ccc196dec7ffb83ce1cd524211ea4f640ff4 0.1s done
+[2026-04-29T15:22:53.444Z] #5 DONE 0.1s
+[2026-04-29T15:22:53.444Z] 
+[2026-04-29T15:22:53.444Z] #4 [internal] load build context
+[2026-04-29T15:22:53.444Z] #4 transferring context: 23.49MB 0.2s done
+[2026-04-29T15:22:53.444Z] #4 DONE 0.2s
+[2026-04-29T15:22:53.444Z] 
+[2026-04-29T15:22:53.444Z] #5 [1/2] FROM docker.io/library/eclipse-temurin:17-jdk@sha256:aae0b1494a5637b2c1b933080088ccc196dec7ffb83ce1cd524211ea4f640ff4
+[2026-04-29T15:22:53.444Z] #5 CACHED
+[2026-04-29T15:22:53.444Z] 
+[2026-04-29T15:22:53.444Z] #6 [2/2] COPY target/cicd-demo-*.jar /app.jar
+[2026-04-29T15:22:53.695Z] #6 DONE 0.3s
+[2026-04-29T15:22:53.695Z] 
+[2026-04-29T15:22:53.695Z] #7 exporting to image
+[2026-04-29T15:22:53.695Z] #7 exporting layers
+[2026-04-29T15:22:55.558Z] #7 exporting layers 1.6s done
+[2026-04-29T15:22:55.558Z] #7 exporting manifest sha256:b1f94990a4094d09681ca99bd001d7724c311337bfeffbee462803e2f7badc9d 0.0s done
+[2026-04-29T15:22:55.558Z] #7 exporting config sha256:61c6003329a3102f15c2fe36c2bff5f6d9fc43220adc458c5505e9ec4747b6ee 0.0s done
+[2026-04-29T15:22:55.558Z] #7 exporting attestation manifest sha256:96bbfb01ced9b57be03611db6ed2c592fb60d1ff4bf5d09e0b5aa02c594f0a97 0.0s done
+[2026-04-29T15:22:55.558Z] #7 exporting manifest list sha256:e904a30a8587e26b8db198d8014a07c74c024965eb792764fbb957bb8cdb8ff3 0.0s done
+[2026-04-29T15:22:55.558Z] #7 naming to docker.io/library/mi-app:latest
+[2026-04-29T15:22:55.558Z] #7 naming to docker.io/library/mi-app:latest done
+[2026-04-29T15:22:55.558Z] #7 unpacking to docker.io/library/mi-app:latest
+[2026-04-29T15:22:55.808Z] #7 unpacking to docker.io/library/mi-app:latest 0.4s done
+[2026-04-29T15:22:55.808Z] #7 DONE 2.1s
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Container Security Scan (Trivy))
+[Pipeline] sh
+[2026-04-29T15:22:56.205Z] + command -v trivy
+[2026-04-29T15:22:56.205Z] + trivy image --severity CRITICAL --exit-code 1 --no-progress --ignorefile .trivyignore mi-app:latest
+[2026-04-29T15:22:56.456Z] 2026-04-29T15:22:56Z	INFO	[vuln] Vulnerability scanning is enabled
+[2026-04-29T15:22:56.456Z] 2026-04-29T15:22:56Z	INFO	[secret] Secret scanning is enabled
+[2026-04-29T15:22:56.456Z] 2026-04-29T15:22:56Z	INFO	[secret] If your scanning is slow, please try '--scanners vuln' to disable secret scanning
+[2026-04-29T15:22:56.456Z] 2026-04-29T15:22:56Z	INFO	[secret] Please see https://trivy.dev/docs/v0.70/guide/scanner/secret#recommendation for faster secret detection
+[2026-04-29T15:23:04.481Z] 2026-04-29T15:23:03Z	INFO	Detected OS	family="ubuntu" version="24.04"
+[2026-04-29T15:23:04.481Z] 2026-04-29T15:23:03Z	INFO	[ubuntu] Detecting vulnerabilities...	os_version="24.04" pkg_num=145
+[2026-04-29T15:23:04.481Z] 2026-04-29T15:23:03Z	INFO	Number of language-specific files	num=1
+[2026-04-29T15:23:04.481Z] 2026-04-29T15:23:03Z	INFO	[jar] Detecting vulnerabilities...
+[2026-04-29T15:23:04.481Z] 2026-04-29T15:23:04Z	INFO	Some vulnerabilities have been ignored/suppressed. Use the "--show-suppressed" flag to display them.
+[2026-04-29T15:23:04.481Z] 
+[2026-04-29T15:23:04.481Z] Report Summary
+[2026-04-29T15:23:04.481Z] 
+[2026-04-29T15:23:04.481Z] ┌──────────────────────────────┬────────┬─────────────────┬─────────┐
+[2026-04-29T15:23:04.481Z] │            Target            │  Type  │ Vulnerabilities │ Secrets │
+[2026-04-29T15:23:04.481Z] ├──────────────────────────────┼────────┼─────────────────┼─────────┤
+[2026-04-29T15:23:04.481Z] │ mi-app:latest (ubuntu 24.04) │ ubuntu │        0        │    -    │
+[2026-04-29T15:23:04.481Z] ├──────────────────────────────┼────────┼─────────────────┼─────────┤
+[2026-04-29T15:23:04.481Z] │ app.jar                      │  jar   │        0        │    -    │
+[2026-04-29T15:23:04.481Z] └──────────────────────────────┴────────┴─────────────────┴─────────┘
+[2026-04-29T15:23:04.481Z] Legend:
+[2026-04-29T15:23:04.481Z] - '-': Not scanned
+[2026-04-29T15:23:04.481Z] - '0': Clean (no security findings detected)
+[2026-04-29T15:23:04.481Z] 
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Deploy)
+Stage "Deploy" skipped due to when conditional
+[Pipeline] getContext
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Declarative: Post Actions)
+[Pipeline] sh
+[2026-04-29T15:23:05.289Z] + docker ps -a --filter name=mi-app --format {{.Names}} {{.Status}}
+[2026-04-29T15:23:05.289Z] + docker image ls mi-app --format {{.Repository}}:{{.Tag}}
+[2026-04-29T15:23:05.289Z] mi-app:latest
+[Pipeline] deleteDir
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // timestamps
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
