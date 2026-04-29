@@ -94,13 +94,17 @@ pipeline {
     }
 
     post {
+        success {
+            echo "¡Éxito! Aplicación desplegada en http://localhost:80/users"
+        }
         failure {
-            echo 'Pipeline falló: revisar logs de Build/Test/SonarQube/Trivy.'
+            echo "❌ El Pipeline ha fallado."
+            echo "Por favor revisa los logs de la etapa que falló (SonarQube, Trivy, Tests, etc.)"
         }
         always {
             sh '''
-                docker ps -a --filter "name=${CONTAINER_NAME}" --format "{{.Names}} {{.Status}}" || true
-                docker image ls ${IMAGE_NAME} --format "{{.Repository}}:{{.Tag}}" || true
+                echo "--- Estado Final del Contenedor ---"
+                docker ps -a --filter "name=${CONTAINER_NAME}" --format "ID: {{.ID}} | Name: {{.Names}} | Status: {{.Status}}" || true
             '''
             deleteDir()
         }
