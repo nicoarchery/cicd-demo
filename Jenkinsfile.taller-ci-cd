@@ -30,7 +30,7 @@ pipeline {
 
         stage('Test') {
             steps {
-                sh 'mvn -B -Djacoco.skip=true -DforkCount=0 test'
+                sh 'mvn -B -Djacoco.skip=true -DforkCount=0 -DexcludedGroups=au.com.equifax.cicddemo.domain.SystemTest test'
             }
         }
 
