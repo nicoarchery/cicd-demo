@@ -8,6 +8,10 @@ pipeline {
         skipDefaultCheckout(true)
     }
 
+    tools {
+        maven 'M3'
+    }
+
     environment {
         IMAGE_NAME = 'mi-app'
         IMAGE_TAG = 'latest'
@@ -24,20 +28,20 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh './mvnw -B -DskipTests clean package'
+                sh 'mvn -B -DskipTests clean package'
             }
         }
 
         stage('Test') {
             steps {
-                sh './mvnw -B test'
+                sh 'mvn -B test'
             }
         }
 
         stage('Static Analysis (SonarQube)') {
             steps {
                 withSonarQubeEnv('SonarQube') {
-                    sh './mvnw -B sonar:sonar -Dsonar.projectKey=${SONAR_PROJECT_KEY}'
+                    sh 'mvn -B sonar:sonar -Dsonar.projectKey=${SONAR_PROJECT_KEY}'
                 }
             }
         }
