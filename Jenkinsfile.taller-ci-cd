@@ -52,7 +52,16 @@ pipeline {
 
         stage('Docker Build') {
             steps {
-                sh 'docker build -t ${IMAGE_NAME}:${IMAGE_TAG} .'
+                // Pre-pull base image and verify artifact exists before building
+                sh '''
+                    if ! ls target/cicd-demo-*.jar 1> /dev/null 2>&1; then
+                        echo "Artifact not found: target/cicd-demo-*.jar"
+                        ls -la target || true
+                        exit 1
+                    fi
+                    docker pull eclipse-temurin:17-jdk || true
+                    docker build -t ${IMAGE_NAME}:${IMAGE_TAG} .
+                '''
             }
         }
 
