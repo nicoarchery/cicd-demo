@@ -79,9 +79,9 @@ pipeline {
 
         stage('Deploy') {
             when {
-                expression {
-                    def branch = sh(script: "git rev-parse --abbrev-ref HEAD", returnStdout: true).trim()
-                    return branch == 'main' || branch == 'master'
+                anyOf {
+                    branch 'main'
+                    branch 'master'
                 }
             }
             steps {
@@ -94,17 +94,13 @@ pipeline {
     }
 
     post {
-        success {
-            echo "¡Éxito! Aplicación desplegada en http://localhost:80/users"
-        }
         failure {
-            echo "❌ El Pipeline ha fallado."
-            echo "Por favor revisa los logs de la etapa que falló (SonarQube, Trivy, Tests, etc.)"
+            echo 'Pipeline falló: revisar logs de Build/Test/SonarQube/Trivy.'
         }
         always {
             sh '''
-                echo "--- Estado Final del Contenedor ---"
-                docker ps -a --filter "name=${CONTAINER_NAME}" --format "ID: {{.ID}} | Name: {{.Names}} | Status: {{.Status}}" || true
+                docker ps -a --filter "name=${CONTAINER_NAME}" --format "{{.Names}} {{.Status}}" || true
+                docker image ls ${IMAGE_NAME} --format "{{.Repository}}:{{.Tag}}" || true
             '''
             deleteDir()
         }

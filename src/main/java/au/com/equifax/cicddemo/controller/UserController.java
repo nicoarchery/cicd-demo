@@ -24,11 +24,6 @@ public class UserController {
         this.service=param;
     }
 
-    @GetMapping("/")
-    public String welcome() {
-        return "¡Bienvenido al Taller de CI/CD! El despliegue automático funciona correctamente.";
-    }
-
     @GetMapping("/users")
     public Collection<User> retrieveAllUsers() {
         return service.getUsers();

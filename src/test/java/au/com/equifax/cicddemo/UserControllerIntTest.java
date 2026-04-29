@@ -30,14 +30,6 @@ public class UserControllerIntTest {
 
     HttpHeaders headers = new HttpHeaders();
 
-    @Test
-    public void testWelcome() {
-        ResponseEntity<String> response = restTemplate.getForEntity(createURLWithPort("/"), String.class);
-        Assert.assertEquals(200, response.getStatusCodeValue());
-        Assert.assertNotNull(response.getBody());
-        Assert.assertTrue(response.getBody().contains("Bienvenido"));
-    }
-
 
     @Test
     public void testRetrieveStudentCourse() throws JSONException {
