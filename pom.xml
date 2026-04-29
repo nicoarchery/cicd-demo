@@ -23,6 +23,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>11</java.version>
+        <!-- Override Tomcat para corregir CVE-2025-24813 y CVE-2026-29145 -->
+        <tomcat.version>9.0.116</tomcat.version>
     </properties>
 
     <dependencies>

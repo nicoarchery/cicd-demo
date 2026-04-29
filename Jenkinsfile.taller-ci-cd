@@ -72,7 +72,7 @@ pipeline {
                         echo "Trivy no está instalado en el agente Jenkins."
                         exit 1
                     fi
-                    trivy image --severity CRITICAL --exit-code 1 --no-progress ${IMAGE_NAME}:${IMAGE_TAG}
+                    trivy image --severity CRITICAL --exit-code 1 --no-progress --ignorefile .trivyignore ${IMAGE_NAME}:${IMAGE_TAG}
                 '''
             }
         }

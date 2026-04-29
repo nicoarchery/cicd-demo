@@ -1,0 +1,6 @@
+# CVE-2016-1000027: spring-web HttpInvokerServiceExporter deserialization
+# Fix requiere Spring Framework 6.0+ (Spring Boot 3.x + Java 17).
+# La migración a Spring Boot 3.x está fuera del alcance de este proyecto.
+# HttpInvokerServiceExporter fue deprecated en Spring 5.3 y eliminado en 6.0.
+# Riesgo aceptado: la aplicación no expone endpoints HttpInvoker en producción.
+CVE-2016-1000027
